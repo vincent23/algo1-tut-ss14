@@ -1,0 +1,110 @@
+\input{includes/head}
+\title[Algorithmen I SS 14]{Tutorium 7}
+
+\usepackage{alltt}
+
+\TitleImage[width=\titleimagewd]{images/title02}
+
+\definecolor{english}{rgb}{0.0, 0.5, 0.0}
+
+\begin{document}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}{Binäre Suchbäume}
+	\begin{itemize}
+		\item Binärbaum, also linkes und rechtes Kind
+		\item linker Teilbaum: kleinere (oder gleiche) Elemente
+		\item rechter Teilbaum: größere Elemente
+		\item Unterschied zu Heapeigenschaft?
+		\item Problem: Balancierung
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Rotation}
+	\begin{itemize}
+		\item Bewegt einen Teilbaum nach unten, dafür einen anderen nach oben
+		\item Eigenschaft des Suchbaums bleibt erhalten
+		\item $\Rightarrow$ Kleinere Teilbäume nach unten (größere nach oben) schieben um Höhe zu reduzieren
+		\item Aufgabe: Balanciere den gegebenen Baum mit möglichst wenigen Rotationen
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\Huge
+		$(a, b)$-Bäume
+	\end{center}
+\end{frame}
+
+\begin{frame}{$(a, b)$-Bäume}
+	\begin{itemize}
+		\item Elemente haben Grad zwischen $a$ und $b$
+		\item Enthalten entsprechend viele Split-Elemente (Splitter)
+		\item Kind-Teilbäume enthalten Elemente zwischen den Splittern
+		\item Dadurch garantierte logarithmische Höhe (wenn $b \geq 2 a - 1$)
+		\item $\Rightarrow$ \emph{locate}, \emph{insert} und \emph{remove} in $\mathcal{O}(\log{n})$
+		\item Problem: wie implementieren?
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Locate}
+	\begin{itemize}
+		\item Ähnlich binären Suchbäumen
+		\item Finde passenden Splitter (wie schnell?)
+		\item Rekursiver Abstieg
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Insert}
+	\begin{itemize}
+		\item Finde Position, an der das einzufügende Element stehen müsste
+		\item Wenn noch genug Platz im Knoten ist, Element als Splitter und Kind einfügen
+		\item Ansonsten aufspalten und mittleres Element in darüberliegenden Knoten einfügen
+		\item Nach oben fortsetzen, bis Platz im Knoten ist oder Wurzel gespalten wird
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Remove}
+	\begin{itemize}
+		\item Finde Element, entferne Element und Splitter
+		\item Knoten jetzt mit zu wenigen Kindern?
+		\item Wenn mit Nachbarknoten kombinierbar, \emph{fuse} und entferne weiter darüberliegende Splitter
+		\item Ansonsten \emph{balance} (ähnlich Rotation)
+	\end{itemize}
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\Huge
+		Graphenrepräsentation
+	\end{center}
+\end{frame}
+
+\begin{frame}{Adjazenzliste}
+	\begin{itemize}
+		\item Speichere für jeden Knoten eine Liste mit Nachbarknoten
+		\item Vorteile: Einfaches Hinzufügen und Entfernen von Kanten
+		\item Nachteile: Speicherverbrauch, Cache-Effizienz
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Adjazenzarray}
+	\begin{itemize}
+		\item Speichere nacheinander für jeden Knoten die Nachbarknoten in Kantenarray
+		\item Speichere zusätzlich in einem Knotenarray für jeden Knoten den Index der ersten ausgehenden Kante
+		\item Kompakte Repräsentation statischer Graphen
+		\item Kantenupdates?
+	\end{itemize}
+\end{frame}
+\begin{frame}{Kompromiss}
+	\begin{itemize}
+		\item Wahlfreier Zugriff auf Kanten und Knoten (und Iteration)
+		\item Hinzufügen von Kanten in amortisiert konstanter Laufzeit
+		\item Entfernen von Kanten in amortisiert konstanter Laufzeit
+	\end{itemize}
+\end{frame}
+\end{document}
+
