@@ -34,7 +34,7 @@
 
 \begin{frame}{Bipartite Zerlegung}
 	\begin{itemize}
-		\item Ein Graph $G = (V, E)$ heißt bipartit $:\Leftrightarrow \exists A, B \subseteq V: A \cap B = \varnothing  \wedge  \forall (u, v) \in E: (u, v) \in ((A \times B) \cup (B \times A))$
+		\item Ein Graph $G = (V, E)$ heißt bipartit $:\Leftrightarrow \exists A, B \subseteq V: A \cap B = \varnothing, A \cup B = V  \wedge  \forall (u, v) \in E: (u, v) \in ((A \times B) \cup (B \times A))$
 		\item Also: die Knoten lassen sich in zwei Mengen aufteilen, so dass es keine Kanten innerhalb der Knoten in einer Menge gibt
 		\item Aufgabe: Entwickle einen Algorithmus, der für einen stark zusammenhängenden Graphen eine bipartite Zerlegung findet (oder erkennt, dass keine existiert). Laufzeit: $\mathcal{O}(|E|)$
 	\end{itemize}
