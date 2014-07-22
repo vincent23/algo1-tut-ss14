@@ -1,0 +1,59 @@
+\input{includes/head}
+\title[Algorithmen I SS 14]{Tutorium 13}
+
+\usepackage{alltt}
+
+\TitleImage[width=\titleimagewd]{images/title02}
+
+\begin{document}
+
+\begin{frame}
+  \maketitle
+\end{frame}
+
+\begin{frame}
+	\begin{center}
+		\Huge
+		Wiederholung
+	\end{center}
+\end{frame}
+
+\begin{frame}{$\mathcal{O}$-Kalkül}
+	Gegeben seien zwei Funktionen $f$ und $g$. Zeige dass gilt:
+
+	$$ g \in \mathcal{O}(f) \Leftrightarrow f \in \Omega(g)$$
+\end{frame}
+
+\begin{frame}{Laufzeiten}
+	Was ist der Unterschied zwischen Laufzeit, erwarteter Laufzeit und amortisierter Laufzeit?
+\end{frame}
+
+\begin{frame}{Sortieren}
+	Gegeben sei eine Folge von $n$ Elementen (bestehend aus Schlüssel und Wert), wobei höchstens $k$ verschiedene Schlüssel auftreten.
+	Entwickle einen Algorithmus, der die Folge in erwarteter Zeit $\mathcal{O}(k \log{k} + n)$ sortiert.
+\end{frame}
+
+\begin{frame}{Minimale Spannbäume}
+	Sei $G = (V, E)$ ein zusammenhängender ungerichteter gewichteter Graph und $T$ ein MST in $G$.
+	Für $V' \subseteq V$ sei $G'$ der von $V'$ induzierte Teilgraph von $G$ und $T'$ der von $V'$ induzierte Teilgraph von $T$.
+
+	Zeige: Wenn $T'$ zusammenhängend ist, dann ist $T'$ ein MST in $G'$.
+\end{frame}
+
+\begin{frame}{Durchmesser von Graphen}
+	Der Durchmesser eines Graphen ist der maximale Abstand zwischen zwei Knoten.
+Entwickle einen Algorithmus, der den Durchmesser eines ungerichteten, ungewichteten, zusammenhängenden Graphen berechnet und dabei höchstens $\mathcal{O}(n m)$ Zeit benötigt.
+\end{frame}
+
+\begin{frame}{Geld wechseln (1)}
+	Gegeben sei die Menge der Münzwerte $M = {1, 2, 5, 10, 20, 50, 100, 200}$.
+	Entwickle einen Greedy-Algorithmus, der für einen gegebenen Geldbetrag die kleinste Menge an Münzen liefert, die zur Darstellung nötig sind.
+	Funktioniert der Algorithmus noch, wenn zusätzlich eine Münze mit dem Wert $4$ eingeführt wird?
+\end{frame}
+
+\begin{frame}{Geld wechseln (2)}
+	Gegeben sei eine beliebige Menge an Münzwerten $M$ mit $1 \in M$.
+	Entwickle einen Algorithmus, der für einen gegebenen Geldbetrag die kleinste Menge an Münzen liefert, die zur Darstellung nötig sind.
+\end{frame}
+
+\end{document}
